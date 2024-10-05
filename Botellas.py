@@ -33,9 +33,13 @@ print(adivinanza)
 
 # Entra en el while a pedir los numeros hasta que se quede sin intentos
 
-while int(intentos) > 0:
+intentos = int(intentos)
+
+while intentos > 0:
 
     ordeningresado = input("Ingresa 5 números del 1 al 5 (sin espacios): ")
+    
+    intentos -= 1
     
     ordeningresadoL = [int(digito) for digito in ordeningresado]
     
@@ -46,7 +50,7 @@ while int(intentos) > 0:
         if adivinanza[i] == ordeningresadoL[i]:
                 comparar.append(adivinanza[i])
                 
-                print("Te quedan " + intentos + " intentos")
+                print("Te quedan " + str(intentos) + " intentos")
     
         if len(comparar) == 5:
             print("¡Felicidades! Todos los números están en la posición correcta.")
