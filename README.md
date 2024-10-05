@@ -1,3 +1,4 @@
 **Falta agregar:**
-1. Decir en vez de que posiciones tiene correctas, cuantas son y arreglar como responde a eso !!!
-2. Agregar colores.
+1. Agregar colores.
+2. Decir en vez de que posiciones tiene correctas, **cuantas** son y **arreglar** como se ve a eso !!!
+
