@@ -19,15 +19,17 @@ Verde = 3
 Negro = 4
 Blanco = 5
 
-print("Los numeros del 1 al 5 han sido ordenados aleatoriamente.")
+#Bienvenida
+
+print(" \n¡Bienvenido al parque de diversiones!  \n\nEstara jugando a adivinar los colores con 5 botellas \nAzul = 1 Rojo = 2 Verde = 3 Negro = 4 Blanco = 5\n \nLos numeros del 1 al 5 han sido ordenados aleatoriamente.")
 
 #Pide la cantidad de intentos
-print("Tenga en cuenta que el puntaje por cada botella se calcula como [10000 / intentos_totales]")
+print(" \n \nTenga en cuenta que el puntaje por cada botella se calcula como [10000 / intentos_totales]")
 
-intentos = input ("¿Cuantos intentos tendrá? ")
+intentos = input (f"{negrita}¿Cuantos intentos tendrá? {resetear}")
 
 #Instrucciones
-print (f"{negrita}Instrucciones:{resetear} Usted deberá adivinar el orden en " + str(intentos) + " intentos. Por cada botella adivinado ganará 1000 puntos Por cada intento perdido perderá 100 puntos También puede pedir ayuda escribiendo help [n] donde [n] es el número que quiere revelar. Esta ayuda le revelará el n úmero a cambio de que ahora el puntaje de cada botella se divide a la mitad. Tenga en cuenta que solo puede pedir una ayuda y que también perderá un intento (-100 puntos)")
+print (f" \n \n{negrita}Instrucciones:{resetear} \nUsted deberá adivinar el orden en " + str(intentos) + " intentos. Por cada botella adivinado ganará 1000 puntos Por cada intento perdido perderá 100 puntos. \nTambién puede pedir ayuda escribiendo help [n] donde [n] es el número que quiere revelar. Esta ayuda le revelará el número a cambio de que ahora el puntaje de cada botella se divide a la mitad. Tenga en cuenta que solo puede pedir una ayuda y que también perderá un intento (-100 puntos). \n")
 
 # Eliminar despues, es para que chequear que funcione ok
 print(adivinanza)
@@ -45,7 +47,7 @@ puntosfinales = 0
 
 while intentos > 0:
 
-    ordeningresado = input("Ingresa 5 números del 1 al 5 (sin espacios): ")
+    ordeningresado = input("\nIngresa 5 números del 1 al 5 (sin espacios): ")
     
     intentos -= 1
     
