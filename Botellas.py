@@ -24,7 +24,7 @@ Blanco = 5
 print(" \n¡Bienvenido al parque de diversiones!  \n\nEstara jugando a adivinar los colores con 5 botellas \nAzul = 1 Rojo = 2 Verde = 3 Negro = 4 Blanco = 5\n \nLos numeros del 1 al 5 han sido ordenados aleatoriamente.")
 
 #Pide la cantidad de intentos
-print(" \n \nTenga en cuenta que el puntaje por cada botella se calcula como [10000 / intentos_totales]")
+print("\nTenga en cuenta que el puntaje por cada botella se calcula como [10000 / intentos_totales]")
 
 intentos = input (f"{negrita}¿Cuantos intentos tendrá? {resetear}")
 
@@ -45,30 +45,38 @@ puntosfinales = 0
 
 # Entra en el while a pedir los numeros hasta que se quede sin intentos
 
-while intentos > 0:
+acertados = 0
+
+while intentos > 0 and acertados < 5:
 
     ordeningresado = input("\nIngresa 5 números del 1 al 5 (sin espacios): ")
     
-    intentos -= 1
-    
     rondas += 100
+    intentos -= 1
+    acertados = 0
     
     ordeningresadoL = [int(digito) for digito in ordeningresado]
-    
-    comparar = []
        
     for i in range(5):
             
         if adivinanza[i] == ordeningresadoL[i]:
-                comparar.append(adivinanza[i])
                 
-                print("Te quedan " + str(intentos) + " intentos")
+            acertados += 1
+
+    print("Te quedan " + str(intentos) + " intentos")
+    print("Hay " + str(acertados) + " posiciones acertadas")   
+
+puntajefinal = puntajebase - rondas 
+
+if acertados == 5:
+
+    print("¡Felicidades! Todos los números están en la posición correcta.")
+
+    puntajefinal = str(puntajefinal)
+
+    print("Tu puntaje final es: " + puntajefinal + "!")
+
+else:
+    print("Perdiste! Ya tendras suerte")
+         
     
-        if len(comparar) == 5:
-            
-            print("¡Felicidades! Todos los números están en la posición correcta.")
-            
-            break
-        
-        else:
-            print(f"No todos los números están en la posición correcta. Números en la posición correcta: {', '.join(map(str, comparar))}.")
