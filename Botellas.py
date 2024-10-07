@@ -38,7 +38,7 @@ print("\nTenga en cuenta que el puntaje por cada botella se calcula como [10000 
 intentos = input (f"{negrita}¿Cuantos intentos tendrá? {resetear}")
 
 #Instrucciones
-print (f" \n \n{negrita}{subrayado}Instrucciones:{resetear} \nUsted deberá adivinar el orden en " + str(intentos) + " intentos. Por cada botella adivinado ganará 1000 puntos Por cada intento perdido perderá 100 puntos. \nTambién puede pedir ayuda escribiendo help [n] donde [n] es el número que quiere revelar. Esta ayuda le revelará el número a cambio de que ahora el puntaje de cada botella se divide a la mitad. Tenga en cuenta que solo puede pedir una ayuda y que también perderá un intento (-100 puntos). \n")
+print (f"\n{negrita}{subrayado}Instrucciones:{resetear} \nUsted deberá adivinar el orden en " + str(intentos) + " intentos. Por cada botella adivinado ganará 1000 puntos Por cada intento perdido perderá 100 puntos. \nTambién puede pedir ayuda escribiendo help [n] donde [n] es el número que quiere revelar. Esta ayuda le revelará el número a cambio de que ahora el puntaje de cada botella se divide a la mitad. Tenga en cuenta que solo puede pedir una ayuda y que también perderá un intento (-100 puntos). \n")
 
 # Eliminar despues, es para que chequear que funcione ok
 print(adivinanza)
