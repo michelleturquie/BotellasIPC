@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Oct  5 17:12:25 2024
-"""
 import random
+
+# Colores y diseño para la consola
 
 negrita = '\033[1m'
 subrayado = '\033[4m'
@@ -15,12 +13,6 @@ colornegro = '\033[37;40m'
 
 resetear = '\033[0m'
 
-#Define el orden de las botellas
-
-botellas = list(range(1, 6))
-random.shuffle(botellas)
-adivinanza = botellas[:5]
-
 colores = {
 
 "1": colorazul,
@@ -30,6 +22,12 @@ colores = {
 "5": colorblanco
 
 }
+
+#Define el orden de las botellas
+
+botellas = list(range(1, 6))
+random.shuffle(botellas)
+adivinanza = botellas[:5]
 
 #Bienvenida
 
@@ -42,9 +40,6 @@ intentos = input (f"{negrita}¿Cuantos intentos tendrá? {resetear}")
 
 #Instrucciones
 print (f"\n{negrita}{subrayado}Instrucciones:{resetear} \nUsted deberá adivinar el orden en " + str(intentos) + " intentos. Por cada botella adivinado ganará 1000 puntos Por cada intento perdido perderá 100 puntos. \nTambién puede pedir ayuda escribiendo help en lugar de la adivinanza. Esta ayuda le revelará el número a cambio de que ahora el puntaje de cada botella se divide a la mitad. Tenga en cuenta que solo puede pedir una ayuda y que también perderá un intento (-100 puntos). \n")
-
-# Eliminar despues, es para que chequear que funcione ok
-print(adivinanza)
 
 intentos = int(intentos)
 
@@ -62,11 +57,13 @@ ayuda = 0
 
 while intentos > 0 and acertados < 5:
 
-    ordeningresado = input("\nIngresa 5 números del 1 al 5 (sin espacios): ")
+    ordeningresado = input("Ingresa 5 números del 1 al 5 (sin espacios): ")
     
     rondas += 100
     intentos -= 1
     acertados = 0
+
+    # Sistema de ayudas
 
     if ordeningresado.lower() == "help" and ayuda == 0:
 
@@ -85,34 +82,51 @@ while intentos > 0 and acertados < 5:
     
         print(str_1.join(concolor))
 
+    # Permitir solo una ayuda
+
     elif ordeningresado.lower() == "help" and ayuda > 0:
 
-        print(f"{negrita}Solo se permite una ayuda{resetear}, continua jugando!")
+        print(f"{negrita}Solo se permite una ayuda, perdio el turno{resetear}, \nIngrese adivinanzas o seguira perdiendo turnos.")
 
-    else:
-    
+    # Condiciones para que se ingrese correctamente, si no va al else    
+
+    elif len(str(ordeningresado)) == 5:
+
         ordeningresadoL = [int(digito) for digito in ordeningresado]
 
+        # Comparar para ver cuantas posciones hay correctas    
+
         for i in range(5):
-                
-            if adivinanza[i] == ordeningresadoL[i]:
                     
+            if adivinanza[i] == ordeningresadoL[i]:
+                        
                 acertados += 1
+
+    else: 
+
+        print(f"\n{negrita}Perdio el turno{resetear} \nIngrese correctamente los numeros o seguira perdiendo turnos.")                
 
     print("Te quedan " + str(intentos) + " intentos")
     print("Hay " + str(acertados) + " posiciones acertadas")   
 
+
+# Puntaje
+
 puntajefinal = puntajebase - rondas 
+
+# En caso de ganar
+
+puntajefinal = round(puntajefinal)
 
 if acertados == 5:
 
     print(f"{negrita}¡Felicidades!{resetear} Todos los números están en la posición correcta.")
 
-    puntajefinal = str(puntajefinal)
+    print(f"{negrita}{subrayado}Tu puntaje final es{resetear}: " + str(puntajefinal))
 
-    print(f"{negrita}{subrayado}Tu puntaje final es{resetear}: " + puntajefinal + "!")
+# En caso de perder
 
 else:
-    print(f"\nPerdiste! Ya tendras suerte\nTu puntaje final es: " + str(puntajefinal) + "\nLa respuesta correcta era " + str(adivinanza) + "!")
+    print(f"\n{negrita}Perdiste!{resetear} Ya tendras suerte\n{negrita}{subrayado}Tu puntaje final es:{resetear} " + str(puntajefinal) + "\nLa respuesta correcta era " + str(adivinanza) + "!")
          
     
