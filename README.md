@@ -1,8 +1,5 @@
-**Falta agregar:**
+Esta todo ok pero si ingresas cualquier cosa se rompe todo.
 
-1. Hacer el **help** !!!
-   a. Hacer efectivamente el help
-   b. que se muestre con los espacios
-
-2. Si ingresas un numero mal o largo, **perdes el turno**. 
+Habria que agregar:
+1. Si ingresas un numero mal o largo, **perdes el turno**. 
 
